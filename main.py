@@ -10,17 +10,22 @@ def index():
 
 @app.route('/random')
 def random_prompt():
-    res = f"<br>Successfully loaded {len(prompts.data)} prompts"
-    res += f"<br>Here is a random example:<br><br>"
+    res = []
+    res.append(f"<br>Successfully loaded {len(prompts.data)} prompts")
+    res.append(f"<br>Here is a random example:<br><br>")
     # res += f"{rand.choice(prompts.data)}"
 
+    #
+    # TODO: HW Challenge: Change the code to print out
+    # a header with the prompt number and then the 2 prompts
+    #
     tuple1,tuple2 = rand.choice(prompts.data)
     p1,_ = tuple1
     p2,__ = tuple2
     
-    res += f'"{p1}"<br>or<br>"{p2}"'
+    res.append(f'"{p1}"<br>or<br>"{p2}"')
     
-    return res
+    return "".join(res)
 
 
 if __name__ == '__main__':
