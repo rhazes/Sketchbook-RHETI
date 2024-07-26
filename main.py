@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 import prompts
 import random as rand
 
@@ -6,7 +6,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello from Flask!'
+    # resave
+    # context = 
+    # return 'Hello from Flask!'
+    return render_template('navForm.html',**({'currentPromptNumber':0,'maxPromptNumber':7}) )
 
 @app.route('/random')
 def random_prompt():
@@ -27,6 +30,29 @@ def random_prompt():
     
     return "".join(res)
 
+@app.route('/prompt/<int:xx>')
+def prompt(xx):
+    print(f"this is the promptNumber: {xx}")
+    ind = xx + 1
+
+    # TODO: write a function that parses a prompt tuple
+    # Into tuple of just the prompt strings
+    promptTuple1, promptTuple2 = prompts.data[ind]
+    # res = [f"<h2>{xx}</h2>",
+    #        f"<p>{promptTuple1[0]}</p>",
+    #        f"<p>{promptTuple2[0]}</p>"]
+    # return "".join( res )
+
+    return render_template('prompt.html',\
+                    **({'currentPromptNumber':xx,\
+                        'maxPromptNumber':7,\
+                        'prompt1':promptTuple1[0],\
+                        'prompt2':promptTuple2[0]}))
+    # return "<h2> next prompt </h2>" + promptNumber
+
+@app.route('/prevPrompt')
+def prev_prompt():
+    return "<h2>Previous Prompt</h2>"
 
 if __name__ == '__main__':
     RUN_APP = False

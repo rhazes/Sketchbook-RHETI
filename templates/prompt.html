@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+  <script src='{{url_for("static",filename="js/nav.js")}}'></script>
+  <div class="w3-container">
+    <h2>{{currentPromptNumber}}</h2>
+    <p>{{prompt1}}</p>
+    <p>{{prompt2}}</p>
+  </div>
+  
+  <div class="w3-container">
+    <form onsubmit="return handleSubmit(event)">
+      <input type="button" onclick="done('/prompt/30')" class="w3-button w3-black" value="prev">
+      <input type="button" onclick="done('/prompt/50')" class="w3-button w3-black" value="next">
+      <input type="hidden" name="currentPromptNumber" value="{{currentPromptNumber}}">
+      <!-- <input type="hidden" name="maxPromptNumber" value="{{maxPromptNumber}}"> -->
+
+    </form>
+  </div>
+
+</body>
+
+</html>
