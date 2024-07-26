@@ -1,8 +1,8 @@
-function done(url){
-    const form = document.querySelector('form');
-    form.action = url;
-    form.submit();
-}
+// function done(url){
+//     const form = document.querySelector('form');
+//     form.action = url;
+//     form.submit();
+// }
 
 function handleSubmit(e) {
   // e.preventDefault();
@@ -19,16 +19,16 @@ function handleSubmit(e) {
   if(btn=='prev') {
     // go to the next prompt
     let prevPrompt = Math.max(0,currentPrompt - 1)
-    form.action = "/prevPrompt/" + prevPrompt  
+    form.action = "/prompt/" + prevPrompt  
     
     shouldReturn = true;
     
   } else if(btn=='next') {
     // go to the next prompt
-    // let maxPrompt = Number(formData.get('maxPromptNumber'))
-    // let nextPrompt = Math.min(100,currentPrompt + 1)
-    let nextPrompt = currentPrompt + 1
-    alert(nextPrompt)
+    let maxPrompt = Number(formData.get('maxPromptNumber'))
+    let nextPrompt = Math.min(100,currentPrompt + 1)
+    // let nextPrompt = currentPrompt + 1
+    
     form.action = "/prompt/"+ nextPrompt;
     
     shouldReturn = true;

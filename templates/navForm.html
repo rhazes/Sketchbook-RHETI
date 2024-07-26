@@ -7,14 +7,14 @@
   <title>replit</title>
   <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src='{{url_for("static",filename="js/nav.js")}}'></script>
 </head>
 
 <body>
-  <script src="static/js/nav.js"></script>
   <div class="w3-container">
-    <form>
-      <input type="button" onclick="done('/prompt/10')" class="w3-button w3-black" value="prev">
-      <input type="button" onclick="done('/prompt/20')" class="w3-button w3-black" value="next">
+    <form onsubmit="return handleSubmit(event)">
+      <input type="submit"  class="w3-button w3-black" value="prev">
+      <input type="submit"  class="w3-button w3-black" value="next">
       <input type="hidden" name="currentPromptNumber" value="{{currentPromptNumber}}">
       <!-- <input type="hidden" name="maxPromptNumber" value="{{maxPromptNumber}}"> -->
 
