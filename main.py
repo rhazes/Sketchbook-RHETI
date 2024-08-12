@@ -9,7 +9,7 @@ def index():
     # resave
     # context = 
     # return 'Hello from Flask!'
-    return render_template('navForm.html',**({'currentPromptNumber':0,'maxPromptNumber':7}) )
+    return render_template('navForm.html',**({'currentPromptNumber':0,'maxPromptNumber':9}) )
 
 @app.route('/random')
 def random_prompt():
