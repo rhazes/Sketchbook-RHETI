@@ -29,6 +29,38 @@
     </form>
   </div>
 
+  <h1>Prompt {{currentPromptNumber}}</h1>
+  <div class="w3-container">
+  <p class="w3-small">
+  Read both statements. Click the button for the statement that is most true for you.
+  </p>
+  </div>
+  <div class="w3-cell-row">
+    <div class="w3-white w3-cell w3-panel">
+      <div class="w3-card w3-panel w3-khaki">
+      <p>{{prompt1}}</p>
+      <div class=" w3-center w3-panel">
+      <button class="w3-button w3-blue">agree</button>
+      </div>
+      </div>
+
+    </div>
+    <div class="w3-white w3-cell w3-panel">
+    <div class="w3-card w3-panel w3-gray">
+      <p>{{prompt2}}</p>
+      <div class=" w3-center w3-panel">
+      <button class="w3-button w3-red">agree</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class = "w3-panel" >
+  <div class="w3-light-grey w3-xlarge">
+    <div class="w3-container w3-green" style="width:{{percentComplete}}%">{{percentComplete}}%</div>
+  </div>
+  </div>
+
+
 </body>
 
 </html>

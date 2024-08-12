@@ -4,6 +4,8 @@ import random as rand
 
 app = Flask(__name__)
 
+SHORT_VERSION_PROMPT_TOTAL = 13
+
 @app.route('/')
 def index():
     # resave
@@ -30,7 +32,7 @@ def random_prompt():
     
     return "".join(res)
 
-@app.route('/prompt/<int:xx>')
+@app.route('/prompt/s/<int:xx>')
 def prompt(xx):
     print(f"this is the promptNumber: {xx}")
     ind = xx + 1
@@ -43,11 +45,13 @@ def prompt(xx):
     #        f"<p>{promptTuple2[0]}</p>"]
     # return "".join( res )
 
+    percent_complete = ("%.0f" % (xx/SHORT_VERSION_PROMPT_TOTAL * 100))
     return render_template('prompt.html',\
                     **({'currentPromptNumber':xx,\
                         'maxPromptNumber':7,\
                         'prompt1':promptTuple1[0],\
-                        'prompt2':promptTuple2[0]}))
+                        'prompt2':promptTuple2[0],\
+                        'percentComplete':percent_complete}))
     # return "<h2> next prompt </h2>" + promptNumber
 
 @app.route('/prevPrompt')
